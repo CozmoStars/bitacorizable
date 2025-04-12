@@ -16,7 +16,6 @@ return new class extends Migration {
             $table->jsonb('log')->nullable();
             $table->timestamps();
 
-            $table->index(['model_type', 'model_id']);
             $table->index(['user_id']);
         });
     }

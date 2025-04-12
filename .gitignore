@@ -42,7 +42,7 @@ tests/*.log
 *.zip
 *.tar.gz
 
-# Carpeta de pruebas automatizadas 
+# Carpeta de pruebas automatizadas
 testbench.sqlite
 
 # Archivos de documentación generados
