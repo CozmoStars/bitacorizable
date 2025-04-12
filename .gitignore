@@ -1,0 +1,49 @@
+# Dependencias
+/vendor
+/node_modules
+
+# Archivos generados por Composer
+composer.lock
+platform_check.php
+
+# Cachés de Laravel (si llegas a probarlo dentro de Laravel completo)
+bootstrap/cache/*
+!bootstrap/cache/.gitignore
+
+# IDEs y editores
+*.log
+*.swp
+*.swo
+*.bak
+*.tmp
+*.DS_Store
+*.idea
+.vscode/
+
+# Archivos del sistema
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Sistemas de despliegue
+.env
+.env.*
+
+# PHPUnit
+.phpunit.result.cache
+.phpunit.cache
+coverage/
+
+# Archivos de pruebas locales
+/tests/tmp/
+tests/*.log
+
+# Archivos ZIP o de distribución temporales
+*.zip
+*.tar.gz
+
+# Carpeta de pruebas automatizadas 
+testbench.sqlite
+
+# Archivos de documentación generados
+/docs/build/
