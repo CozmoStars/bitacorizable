@@ -22,17 +22,27 @@ Laravel registrará automáticamente el Service Provider gracias a `extra.larave
 
 ---
 
-## Migración
+## 📂 Publicar migración personalizada
 
-Este paquete incluye una migración lista para crear la tabla `bitacoras`.
+Este paquete **incluye una migración que puedes publicar y modificar** si tu tabla `users` no usa `id` como clave primaria (por ejemplo, si usas `idUsuario`):
 
-Aplica la migración:
+```bash
+php artisan vendor:publish --tag=bitacorizable-migrations
+```
+
+Luego edita la migración publicada y ajusta la clave foránea si es necesario:
+
+```php
+$table->foreign('user_id')->references('idUsuario')->on('users');
+```
+
+Y después ejecuta:
 
 ```bash
 php artisan migrate
 ```
 
-> Asegúrate de tener previamente una tabla `users`, ya que `user_id` es una clave foránea opcional.
+> ⚠️ Si no necesitas modificar la migración, puedes simplemente correr `php artisan migrate` sin publicar nada.
 
 ---
 
@@ -55,11 +65,11 @@ class User extends Model
 
 ## 🧠 ¿Qué registra?
 
-| Evento     | ¿Qué guarda?                                                                 |
-|------------|------------------------------------------------------------------------------|
-| `created`  | Todos los campos iniciales del modelo (excluyendo los ignorados)            |
-| `updated`  | Solo los campos modificados con su valor `antes` y `después`                |
-| `deleted`  | Todos los valores del modelo antes de eliminarlo                            |
+| Evento    | ¿Qué guarda?                                                               |
+|-----------|----------------------------------------------------------------------------|
+| created   | Todos los campos iniciales del modelo (excluyendo los ignorados)          |
+| updated   | Solo los campos modificados con su valor `antes` y `después`              |
+| deleted   | Todos los valores del modelo antes de eliminarlo                          |
 
 ---
 
